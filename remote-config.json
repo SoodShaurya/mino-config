@@ -1,0 +1,313 @@
+{
+  "version": 8,
+  "flags": {},
+  "hints": {
+    "instagram": {
+      "countPaths": [
+        "^/reels(/|$)"
+      ],
+      "singlePaths": [
+        "^/reel/",
+        "^/p/"
+      ],
+      "loginPaths": [
+        "^/accounts/login",
+        "^/accounts/emailsignup"
+      ],
+      "bottomNavHeight": 50,
+      "pollMs": 400,
+      "stablePolls": 2,
+      "minVisible": 0.3,
+      "toggles": [
+        {
+          "key": "nativeChrome",
+          "title": "Hide the prompts to open the real app",
+          "builtin": true,
+          "textHide": [
+            {
+              "match": "^Open app$",
+              "closest": "a,button,div",
+              "maxLength": 10,
+              "fixedAncestor": true
+            },
+            {
+              "match": "^Open Instagram$",
+              "closest": "a,button",
+              "maxLength": 16,
+              "fixedAncestor": true
+            },
+            {
+              "match": "^(Use|Get) the app$",
+              "closest": "a,button,div",
+              "maxLength": 14,
+              "fixedAncestor": true
+            },
+            {
+              "match": "^Watch this reel in the app$",
+              "closest": "[role=dialog]",
+              "maxLength": 30,
+              "backdrop": true
+            },
+            {
+              "match": "^Use the app to view all comments and discover more reels\\.?$",
+              "closest": "[role=dialog]",
+              "maxLength": 70,
+              "backdrop": true
+            },
+            {
+              "match": "^Log in to see more from Instagram$",
+              "closest": "[role=dialog]",
+              "maxLength": 40,
+              "backdrop": true
+            }
+          ],
+          "detail": "The “Open app” banners and the pop-ups asking you to continue in Instagram."
+        },
+        {
+          "key": "hideSuggested",
+          "title": "Hide suggested posts",
+          "detail": "Hides suggested posts, and everything after them. Your home feed ends with the accounts you follow.",
+          "textHide": [
+            {
+              "match": "^Suggested for you$",
+              "closest": "article",
+              "maxLength": 24,
+              "listItem": true
+            },
+            {
+              "match": "^Suggested posts$",
+              "closest": "div",
+              "maxLength": 20,
+              "listItem": true,
+              "hideFollowing": true
+            }
+          ]
+        },
+        {
+          "key": "followingOnly",
+          "title": "Start on the Following feed",
+          "detail": "It switches once, when you open Instagram. Tap Home after that and you get the usual feed.",
+          "redirects": [
+            {
+              "from": "^/$",
+              "to": "/?variant=following"
+            }
+          ],
+          "pro": true
+        },
+        {
+          "key": "hideExplore",
+          "title": "Hide the Explore grid",
+          "detail": "The search page stays. The grid of posts under it goes.",
+          "css": "html[data-mino-path=\"/explore/\"] a[href^=\"/p/\"],html[data-mino-path=\"/explore/\"] a[href^=\"/reel/\"],html[data-mino-path=\"/explore\"] a[href^=\"/p/\"],html[data-mino-path=\"/explore\"] a[href^=\"/reel/\"]{display:none !important}",
+          "pro": true
+        },
+        {
+          "key": "hideInFeedVideo",
+          "title": "Hide video posts",
+          "css": "article:has(video){display:none !important}",
+          "pro": true,
+          "detail": "Removes any home-feed post with a video in it."
+        },
+        {
+          "key": "hideSuggestedAccounts",
+          "title": "Hide suggested accounts",
+          "textHide": [
+            {
+              "match": "^Suggested for you$",
+              "closest": "div",
+              "maxLength": 24
+            }
+          ],
+          "pro": true,
+          "detail": "The row of accounts Instagram suggests you follow."
+        },
+        {
+          "key": "hideLive",
+          "title": "Hide Live",
+          "hideHref": [
+            "/live/"
+          ],
+          "css": "a[href*=\"/live/\"]{display:none !important}",
+          "detail": "Live badges and the live videos they open."
+        },
+        {
+          "key": "hideReelsTab",
+          "title": "Hide the Reels tab",
+          "hideHref": [
+            "/reels/"
+          ],
+          "pro": true,
+          "css": "a[href=\"/reels/\"],a[href^=\"/reels/\"],a[aria-label=\"Reels\"],[role=link][aria-label=\"Reels\"],a:has(> svg[aria-label=\"Reels\"]),div:has(> a > svg[aria-label=\"Reels\"]){display:none !important}",
+          "detail": "Takes Reels out of the bottom bar. Reel links still open."
+        },
+        {
+          "key": "hideLikeCounts",
+          "title": "Hide like counts",
+          "textHide": [
+            {
+              "match": "^[0-9][0-9,.]*[KM]? likes$",
+              "closest": "span",
+              "maxLength": 20
+            }
+          ],
+          "pro": true,
+          "detail": "The numbers under posts, not the posts."
+        },
+        {
+          "key": "hideStories",
+          "title": "Hide the Stories row",
+          "css": "div:has(> ul a[href^=\"/stories/\"]),ul:has(a[href^=\"/stories/\"]){display:none !important}",
+          "pro": true,
+          "detail": "The row of circles across the top of the home feed."
+        }
+      ]
+    },
+    "youtube": {
+      "countPaths": [
+        "^/shorts(/|$)"
+      ],
+      "singlePaths": [],
+      "loginPaths": [
+        "^/signin",
+        "^/accounts"
+      ],
+      "bottomNavHeight": 48,
+      "pollMs": 400,
+      "stablePolls": 2,
+      "minVisible": 0.3,
+      "toggles": [
+        {
+          "key": "nativeChrome",
+          "title": "Hide the prompts to open the real app",
+          "builtin": true,
+          "textHide": [
+            {
+              "match": "^Open [Aa]pp$",
+              "closest": "a,button",
+              "maxLength": 10,
+              "fixedAncestor": true
+            }
+          ],
+          "detail": "The banners asking you to continue in YouTube."
+        },
+        {
+          "key": "hideShortsShelf",
+          "title": "Hide Shorts shelves",
+          "css": "ytm-reel-shelf-renderer,ytm-rich-section-renderer:has(ytm-reel-shelf-renderer),ytm-shorts-lockup-view-model,ytm-rich-item-renderer:has(a[href^=\"/shorts/\"]){display:none !important}",
+          "detail": "The rows of Shorts that appear partway down the home feed."
+        },
+        {
+          "key": "hideShortsTab",
+          "title": "Hide the Shorts tab",
+          "css": "ytm-pivot-bar-item-renderer:has(a[href^=\"/shorts\"]),ytm-pivot-bar-item-renderer:has(.pivot-shorts),a[href=\"/shorts\"],[aria-label=\"Shorts\"][role=tab],ytm-pivot-bar-item-renderer:has([aria-label=\"Shorts\"]){display:none !important}",
+          "pro": true,
+          "detail": "Takes Shorts out of the bottom bar. Shorts links still open."
+        },
+        {
+          "key": "subscriptionsHome",
+          "title": "Start on the Subscriptions tab",
+          "detail": "It switches once, when you open YouTube. Tap Home after that and you get the normal home feed.",
+          "redirects": [
+            {
+              "from": "^/$",
+              "to": "/feed/subscriptions"
+            }
+          ],
+          "pro": true
+        },
+        {
+          "key": "hideRecommendations",
+          "title": "Hide recommendations",
+          "detail": "The up-next list beside a video, and the suggestions when one ends.",
+          "css": "ytm-watch-next-secondary-results-renderer,ytm-item-section-renderer[section-identifier=\"related-items\"],.ytp-endscreen-content,ytm-compact-video-renderer{display:none !important}",
+          "pro": true
+        },
+        {
+          "key": "hideComments",
+          "title": "Hide comments",
+          "css": "ytm-comment-section-renderer,ytm-comments-entry-point-header-renderer,ytm-comments-simplebox-renderer{display:none !important}",
+          "pro": true,
+          "detail": "The comment section under a video."
+        }
+      ]
+    },
+    "tiktok": {
+      "countPaths": [
+        "^/$",
+        "^/foryou/?$",
+        "^/following/?$",
+        "^/explore/?$",
+        "^/@[^/]+/video/"
+      ],
+      "singlePaths": [],
+      "loginPaths": [
+        "^/login"
+      ],
+      "bottomNavHeight": 50,
+      "pollMs": 400,
+      "stablePolls": 2,
+      "minVisible": 0.3,
+      "toggles": [
+        {
+          "key": "nativeChrome",
+          "title": "Hide the prompts to open the real app",
+          "builtin": true,
+          "textHide": [
+            {
+              "match": "^Open app$",
+              "closest": "button,a",
+              "maxLength": 10,
+              "fixedAncestor": true
+            },
+            {
+              "match": "^Get the full app experience$",
+              "closest": "#login-modal",
+              "maxLength": 30,
+              "backdrop": true
+            },
+            {
+              "match": "^Get Coins$",
+              "closest": "a,button,div",
+              "maxLength": 10
+            }
+          ],
+          "detail": "The banners and pop-ups asking you to continue in TikTok."
+        },
+        {
+          "key": "followingOnly",
+          "title": "Start on the Following feed",
+          "detail": "It switches once, when you open TikTok. Switch to For You after that and it stays there.",
+          "redirects": [
+            {
+              "from": "^/$",
+              "to": "/following"
+            },
+            {
+              "from": "^/foryou/?$",
+              "to": "/following"
+            }
+          ],
+          "pro": true
+        },
+        {
+          "key": "hideExplore",
+          "title": "Hide the Explore tab",
+          "hideHref": [
+            "/explore"
+          ],
+          "pro": true,
+          "detail": "Takes Explore out of the bottom bar."
+        },
+        {
+          "key": "hideLive",
+          "title": "Hide Live",
+          "hideHref": [
+            "/live"
+          ],
+          "detail": "Live badges and the live videos they open."
+        }
+      ]
+    }
+  }
+}
