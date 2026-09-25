@@ -1,5 +1,5 @@
 {
-  "version": 8,
+  "version": 11,
   "flags": {},
   "hints": {
     "instagram": {
@@ -8,7 +8,8 @@
       ],
       "singlePaths": [
         "^/reel/",
-        "^/p/"
+        "^/p/",
+        "^/direct/"
       ],
       "loginPaths": [
         "^/accounts/login",
@@ -81,7 +82,8 @@
               "listItem": true,
               "hideFollowing": true
             }
-          ]
+          ],
+          "group": "In the feed"
         },
         {
           "key": "followingOnly",
@@ -93,21 +95,22 @@
               "to": "/?variant=following"
             }
           ],
-          "pro": true
+          "pro": true,
+          "group": "Where it opens"
         },
         {
           "key": "hideExplore",
           "title": "Hide the Explore grid",
-          "detail": "The search page stays. The grid of posts under it goes.",
           "css": "html[data-mino-path=\"/explore/\"] a[href^=\"/p/\"],html[data-mino-path=\"/explore/\"] a[href^=\"/reel/\"],html[data-mino-path=\"/explore\"] a[href^=\"/p/\"],html[data-mino-path=\"/explore\"] a[href^=\"/reel/\"]{display:none !important}",
-          "pro": true
+          "pro": true,
+          "group": "Other tabs"
         },
         {
           "key": "hideInFeedVideo",
           "title": "Hide video posts",
           "css": "article:has(video){display:none !important}",
           "pro": true,
-          "detail": "Removes any home-feed post with a video in it."
+          "group": "In the feed"
         },
         {
           "key": "hideSuggestedAccounts",
@@ -120,7 +123,7 @@
             }
           ],
           "pro": true,
-          "detail": "The row of accounts Instagram suggests you follow."
+          "group": "In the feed"
         },
         {
           "key": "hideLive",
@@ -129,7 +132,7 @@
             "/live/"
           ],
           "css": "a[href*=\"/live/\"]{display:none !important}",
-          "detail": "Live badges and the live videos they open."
+          "group": "In the feed"
         },
         {
           "key": "hideReelsTab",
@@ -139,7 +142,8 @@
           ],
           "pro": true,
           "css": "a[href=\"/reels/\"],a[href^=\"/reels/\"],a[aria-label=\"Reels\"],[role=link][aria-label=\"Reels\"],a:has(> svg[aria-label=\"Reels\"]),div:has(> a > svg[aria-label=\"Reels\"]){display:none !important}",
-          "detail": "Takes Reels out of the bottom bar. Reel links still open."
+          "detail": "Takes Reels out of the bottom bar. Reel links still open.",
+          "group": "Other tabs"
         },
         {
           "key": "hideLikeCounts",
@@ -152,15 +156,18 @@
             }
           ],
           "pro": true,
-          "detail": "The numbers under posts, not the posts."
+          "group": "Numbers"
         },
         {
           "key": "hideStories",
           "title": "Hide the Stories row",
           "css": "div:has(> ul a[href^=\"/stories/\"]),ul:has(a[href^=\"/stories/\"]){display:none !important}",
           "pro": true,
-          "detail": "The row of circles across the top of the home feed."
+          "group": "In the feed"
         }
+      ],
+      "blockedCountPaths": [
+        "^/$"
       ]
     },
     "youtube": {
@@ -195,14 +202,15 @@
           "key": "hideShortsShelf",
           "title": "Hide Shorts shelves",
           "css": "ytm-reel-shelf-renderer,ytm-rich-section-renderer:has(ytm-reel-shelf-renderer),ytm-shorts-lockup-view-model,ytm-rich-item-renderer:has(a[href^=\"/shorts/\"]){display:none !important}",
-          "detail": "The rows of Shorts that appear partway down the home feed."
+          "group": "In the feed"
         },
         {
           "key": "hideShortsTab",
           "title": "Hide the Shorts tab",
           "css": "ytm-pivot-bar-item-renderer:has(a[href^=\"/shorts\"]),ytm-pivot-bar-item-renderer:has(.pivot-shorts),a[href=\"/shorts\"],[aria-label=\"Shorts\"][role=tab],ytm-pivot-bar-item-renderer:has([aria-label=\"Shorts\"]){display:none !important}",
           "pro": true,
-          "detail": "Takes Shorts out of the bottom bar. Shorts links still open."
+          "detail": "Takes Shorts out of the bottom bar. Shorts links still open.",
+          "group": "Other tabs"
         },
         {
           "key": "subscriptionsHome",
@@ -214,21 +222,22 @@
               "to": "/feed/subscriptions"
             }
           ],
-          "pro": true
+          "pro": true,
+          "group": "Where it opens"
         },
         {
           "key": "hideRecommendations",
           "title": "Hide recommendations",
-          "detail": "The up-next list beside a video, and the suggestions when one ends.",
           "css": "ytm-watch-next-secondary-results-renderer,ytm-item-section-renderer[section-identifier=\"related-items\"],.ytp-endscreen-content,ytm-compact-video-renderer{display:none !important}",
-          "pro": true
+          "pro": true,
+          "group": "In the feed"
         },
         {
           "key": "hideComments",
           "title": "Hide comments",
           "css": "ytm-comment-section-renderer,ytm-comments-entry-point-header-renderer,ytm-comments-simplebox-renderer{display:none !important}",
           "pro": true,
-          "detail": "The comment section under a video."
+          "group": "In the feed"
         }
       ]
     },
@@ -288,7 +297,8 @@
               "to": "/following"
             }
           ],
-          "pro": true
+          "pro": true,
+          "group": "Where it opens"
         },
         {
           "key": "hideExplore",
@@ -297,7 +307,7 @@
             "/explore"
           ],
           "pro": true,
-          "detail": "Takes Explore out of the bottom bar."
+          "group": "Other tabs"
         },
         {
           "key": "hideLive",
@@ -305,7 +315,7 @@
           "hideHref": [
             "/live"
           ],
-          "detail": "Live badges and the live videos they open."
+          "group": "In the feed"
         }
       ]
     }
